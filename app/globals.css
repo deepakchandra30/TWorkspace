@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/*
+  Palette: Bitwarden's light scheme, read from bitwarden.com's stylesheet on 2026-10-03.
+  Raw values only. Components never use these names; they use the semantic layer below.
+*/
+@theme {
+  --color-bw-blue-100: #dbe5f6;
+  --color-bw-blue-300: #79a1e9;
+  --color-bw-blue-500: #175ddc;
+  --color-bw-blue-700: #1a41ac;
+  --color-bw-blue-900: #020f66;
+
+  --color-bw-gray-50: #f3f6f9;
+  --color-bw-gray-100: #e6e9ef;
+  --color-bw-gray-200: #cbd2de;
+  --color-bw-gray-300: #9ea7b5;
+  --color-bw-gray-500: #79808e;
+  --color-bw-gray-700: #303946;
+  --color-bw-gray-900: #0a171f;
+
+  --color-bw-muted: #606d91;
+  --color-bw-green-600: #0c8018;
+  --color-bw-red-600: #cb263a;
+}
+
+/*
+  Semantic layer: what components use. A dark theme later redefines only these.
+  Contrast on white: accent 5.78:1, muted 5.13:1, danger 5.42:1, success 5.1:1 (WCAG AA).
+*/
+@theme inline {
+  --color-accent: var(--color-bw-blue-500);
+  --color-accent-hover: var(--color-bw-blue-700);
+  --color-accent-soft: var(--color-bw-blue-100);
+  --color-on-accent: #ffffff;
+
+  --color-canvas: var(--color-bw-gray-50);
+  --color-surface: #ffffff;
+  --color-border: var(--color-bw-gray-200);
+
+  --color-text: var(--color-bw-gray-900);
+  --color-text-muted: var(--color-bw-muted);
+
+  --color-success: var(--color-bw-green-600);
+  --color-danger: var(--color-bw-red-600);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-text);
+}

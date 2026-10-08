@@ -1,0 +1,45 @@
+{
+  "name": "workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js",
+    "lint": "eslint",
+    "db:ping": "node --env-file-if-exists=.env scripts/db-ping.js",
+    "test": "vitest run",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test:integration": "next build && vitest run --config vitest.integration.config.ts",
+    "db:setup": "node --env-file-if-exists=.env scripts/setup.js",
+    "verify": "pnpm typecheck && pnpm lint && pnpm test && pnpm test:integration"
+  },
+  "dependencies": {
+    "mongodb": "^7.7.0",
+    "next": "16.3.8",
+    "qrcode": "^1.5.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "socket.io": "^4.8.4",
+    "socket.io-client": "^4.8.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^5.0.3"
+  },
+  "packageManager": "pnpm@12.4.1",
+  "engines": {
+    "node": ">=24 <25",
+    "npm": "please-use-pnpm",
+    "pnpm": ">=12"
+  }
+}

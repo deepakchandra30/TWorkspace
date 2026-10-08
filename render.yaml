@@ -1,0 +1,25 @@
+# Render Blueprint: Dashboard → New → Blueprint → pick this repo → paste MONGODB_URI → Apply.
+# Spec: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: workspace
+    runtime: node
+    plan: free
+    region: frankfurt
+    branch: main
+    # `corepack enable` fails here: it writes shims into /usr/bin, which is read-only on Render.
+    # `corepack pnpm` runs the packageManager version (pnpm 12.4.1) without installing anything.
+    buildCommand: corepack pnpm install --frozen-lockfile && corepack pnpm build
+    # The `start` script, run directly so booting doesn't need pnpm at all.
+    startCommand: NODE_ENV=production node server.js
+    # A failing database check blocks the deploy instead of shipping a broken app.
+    healthCheckPath: /api/health
+    envVars:
+      # Prompted for in the dashboard when the Blueprint is first created.
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DB
+        value: workspace
+      # Corepack may otherwise stop to ask before downloading pnpm.
+      - key: COREPACK_ENABLE_DOWNLOAD_PROMPT
+        value: "0"
