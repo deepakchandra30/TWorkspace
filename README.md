@@ -1,14 +1,5 @@
 links
-
 LIVE PROJECT HERE: https://workspace-ystq.onrender.com/
-
-https://github.com/Shprotya/mongo.git
-
-https://luma.link/BXY2O68NEX
-
-https://claude.ai/share/564ab57c-9d49-4275-b8b1-47a43acd022c
-https://claude.ai/artifact/PaaN1WPtb8VbAKwmLJRyhJ#0682a939-ae1d
-https://chat.whatsapp.com/ITVBJvX7zSg18zAHz88e3d
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
